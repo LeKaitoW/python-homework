@@ -7,17 +7,21 @@ playoff = {}
 round_number = len(teams)//2
 print("start teams: ", teams)
 
-def init_pairs(teams):
-	pairs = []
+def check_team_number(teams):
 	if len(teams)%2:
 		print("odd team number")
 		exit()
+
+def init_pairs(teams):
+	check_team_number(teams)
+	pairs = []
 	while teams:
 		pairs.append([teams.pop(random.randrange(0, len(teams))),
 			teams.pop(random.randrange(0, len(teams)))])
 	return pairs
 
 def create_pairs(teams):
+	check_team_number(teams)
 	return [list(pairs) for pairs in zip(teams[::2], teams[1::2])]
 
 def match(pair):
