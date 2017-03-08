@@ -1,11 +1,11 @@
 import random
 
 teams = ['eg', 'sk', 'vega', 'rox', 'elements', 'albus', 'al', 'gg']
-wins = 1
+wins = 1 #количество побед в каждом раунде
 
 playoff = {}
 round_number = len(teams)//2
-print("start teams: ",teams)
+print("start teams: ", teams)
 
 def init_pairs(teams):
 	pairs = []
