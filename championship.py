@@ -9,8 +9,7 @@ print("start teams: ", teams)
 
 def check_team_number(teams):
 	if len(teams)%2:
-		print("odd team number")
-		exit()
+		quit("odd team number")
 
 def init_pairs(teams):
 	check_team_number(teams)
