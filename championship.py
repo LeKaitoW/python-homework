@@ -54,12 +54,17 @@ def round(pairs):
 	
 pairs = init_pairs(teams)
 for i in range(round_number-1):
-	print("pairs: ", pairs)
 	teams = round(pairs)
-	print("teams: ", teams)
 	pairs = create_pairs(teams)
-		
-print("playoff: ", playoff)
+
+print()	
+print("playoff:")
+for round in playoff:
+	print(round, ":")
+	for match in playoff.get(round):
+		print(match)
+
+print()
 print("winner is ", teams[0])
 
 while True:
