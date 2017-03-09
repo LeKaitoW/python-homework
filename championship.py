@@ -8,7 +8,7 @@ round_number = len(teams)//2
 print("start teams: ", teams)
 
 def check_team_number(teams):
-	if len(teams)%2:
+	if len(teams)%2 and len(teams)!=1:
 		quit("odd team number")
 
 def init_pairs(teams):
@@ -54,4 +54,12 @@ for i in range(round_number-1):
 		
 print("playoff: ", playoff)
 print("winner is ", teams[0])
-input()
+
+while True:
+	team = input()
+	if not team:
+		quit()
+	for round in playoff:
+		for match in playoff.get(round):
+			if (team in match.values()):
+				print(round, match)
