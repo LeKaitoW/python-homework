@@ -7,7 +7,7 @@ def log_duration(fun):
         start = time.time()
         fun()
         end = time.time()
-        print(end-start)
+        print('log time = ', end-start)
     return wrapper
 
 
@@ -16,38 +16,33 @@ def to_json(fun):
         result = fun()
         if type(result) is dict:
             new = json.dumps(result)
-            print(new)
             return new
         return result
     return wrapper
 
 
-def ignore_exceptions(excepction_class):
+def ignore_exceptions(exception_class):
     def ignore(fun):
         def wrapper():
             try:
                 fun()
-            except excepction_class:
+            except exception_class:
                 pass
                 return None
         return wrapper
     return ignore
 
 
-
-
-@log_duration
-@to_json
-@ignore_exceptions(ZeroDivisionError)
+#@log_duration
+#@to_json
+#@ignore_exceptions(ZeroDivisionError)
 def something():
     dict = {}
     for i in range(pow(3,2)):
         i **= 2
         dict.update({i:'hi'})
-    print(i)
-    1 / 0
-    print(dict)
+    #1 / 0
     return dict
 
 
-something()
+print('finally: ', something())
